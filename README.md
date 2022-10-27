@@ -57,7 +57,7 @@ lorsque deux branches modifient **la même ligne de code**, alors au moment de l
 
 ### commit #3 : version 3
 
-* éditez le README pour mettre 2 comme numéro de version  
+* éditez le README pour mettre 3 comme numéro de version  
 * committez
 
 
