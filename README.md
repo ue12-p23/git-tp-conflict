@@ -1,20 +1,18 @@
 # résolution de conflit
 
-
 ## propos
 
 on va délibérément créer un conflit, pour s'entraîner à gérer ce cas-là
-
 
 ## rappel : c'est quoi un conflit ?
 
 lorsque deux branches modifient **la même ligne de code**, alors au moment de les fusionner le code qui fait la fusion automatique **ne sait pas** quelle version prendre
 
-
 ## comment ça se manifeste ?
 
 * on reçoit un message d'erreur dans le terminal au moment du *merge* ou du *pull* (et souvenez-vous que *pull* aussi fait un *merge*)
 * dans ce cas là le fichier **les deux versions** sont conservées dans le fichier sous la forme
+
     ```text
     <<<<<<< HEAD
     le code de la branche courante
@@ -23,13 +21,11 @@ lorsque deux branches modifient **la même ligne de code**, alors au moment de l
     >>>>>>> origin/main
     ```
 
-
 ## le TP
 
 (à un joueur)
 
 ### créer un repo
-
 
 ### commit #1 : le README en version 1
 
@@ -41,33 +37,32 @@ lorsque deux branches modifient **la même ligne de code**, alors au moment de l
     de mon magnifique logiciel buriverseur
     ```
 
-
 ### commit #2 : version 2
 
-* éditez le README pour mettre 2 comme numéro de version  
+* éditez le README pour mettre 2 comme numéro de version
 * committez
-
 
 ### on revient en arriére
 
 * revenez sur le premier commit en créant une nouvelle branche `devel`
 
-**indice** on rappelle la commande `git switch -c` pour créer une nouvelle branche et l'adopter en même temps comme branche courante
+**indice** on rappelle la commande `git switch -c` pour, en une seule commande:
 
+* créer une nouvelle branche
+* et l'adopter en même temps comme branche courante
 
 ### commit #3 : version 3
 
 * éditez le README pour mettre 3 comme numéro de version  
 * committez
 
-
 ### à quoi ça doit ressembler
 
-vous devez avoir un diagramme qui contient 
+vous devez avoir un diagramme qui contient
+
 * un commit racine avec *version 1*
 * une branche `main` avec *version 2* -  directement liée à la racine
 * une branche `devel` avec *version 3* - directement liée à la racine
-
 
 ### on essaie de fusionner
 
@@ -75,13 +70,11 @@ vous devez avoir un diagramme qui contient
 
 **indice**: on donne à `git merge` le commit à fusionner (sous-entendu, dans la branche courante)
 
-normalement on est en situation de conflit, et vous devez vois les symptômes décrits au dessus à la rubrique *comment ça se manifeste ?*
+normalement on est en situation de conflit, et vous devez voir les symptômes décrits au dessus à la rubrique *comment ça se manifeste ?*
 
-
-### observez `git status`
+### `git status` avant
 
 * regardez notamment la catégorie dans laquelle est rangé le `README.md`
-
 
 ### résoudre le conflit
 
@@ -92,20 +85,18 @@ normalement on est en situation de conflit, et vous devez vois les symptômes d�
   que pour nous aider à raisonner; le fichier que vous sauvez doit ressembler au
   README du départ, bien sûr
 
+### `git status` après
 
-### observez `git status`
-
-* à nouveau, regsrdez la catégorie dans laquelle est rangé le `README.md`
+* à nouveau, regardez la catégorie dans laquelle est rangé le `README.md`
 
   a-t-on besoin de faire `git add README.md` ?
-
 
 ### commit #4
 
 * à ce stade, vous pouvez poursuivre le merge en tapant au choix
 
   ```bash
-  git merge --continue   # vous pouvez aussi ajouter --no-edit 
+  git merge --continue   # vous pouvez aussi ajouter --no-edit
                          # si vous ne voulez pas entrer dans l'éditeur
   ```
 
@@ -115,15 +106,16 @@ normalement on est en situation de conflit, et vous devez vois les symptômes d�
   git commit
   ```
 
-
 ### épilogue
 
 dans tous les cas, à ce stade vous devez avoir
 
 * un dépôt propre (rien qui traine dans le status)
 * 4 commits en forme de diamant
+
   ```text
   1 -> 2 -> 4
      \ 3 /
   ```
+
 * avec le numéro de version dans le README.md correspondant
